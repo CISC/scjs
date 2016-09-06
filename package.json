@@ -1,0 +1,27 @@
+{
+  "name": "scjs",
+  "version": "1.0.0",
+  "description": "A simple interface to Scala Content Manager web-services",
+  "tags": [
+    "Scala",
+    "Content Manager",
+    "REST",
+    "scws2"
+  ],
+  "main": "index.js",
+  "author": "Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cisc/scjs.git"
+  },
+  "bugs": {
+    "url": "http://github.com/cisc/scjs/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "debug": "^2.2.0"
+  }
+}
