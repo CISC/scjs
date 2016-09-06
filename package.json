@@ -9,7 +9,7 @@
     "scws2"
   ],
   "main": "index.js",
-  "author": "Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>",
+  "author": "SigbjÃ¸rn SkjÃ¦ret <sigbjorn.skjaeret@scala.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/cisc/scjs.git"

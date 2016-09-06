@@ -40,7 +40,7 @@ const querystring = require('querystring');
  *
  * Example usage (set DEBUG=scjs for debug output):
  *
- * scjs = require('scjs');
+ * var scjs = require('scjs');
  *
  * var baseurl = "http://localhost/ContentManager";
  * var username = "user";
