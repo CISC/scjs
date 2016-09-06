@@ -91,7 +91,8 @@ function ConManager(baseurl, token_name) {
         }
 
         let options = {
-            'host': this._baseurl.host,
+            'hostname': this._baseurl.hostname,
+            'port': this._baseurl.port,
             'path': url.resolve(this._baseurl.path, endpoint),
             'method': method,
             'headers': headers
@@ -230,7 +231,8 @@ function ConManager(baseurl, token_name) {
                     }
 
                     let options = {
-                        'host': this._baseurl.host,
+                        'hostname': this._baseurl.hostname,
+                        'port': this._baseurl.port,
                         'path': url.resolve(this._baseurl.path, `fileupload/part/${uuid}/${off}`),
                         'method': 'PUT',
                         'headers': headers
@@ -340,7 +342,8 @@ function ConManager(baseurl, token_name) {
         }
 
         let options = {
-            'host': urlpath.host,
+            'hostname': urlpath.hostname,
+            'port': urlpath.port,
             'path': urlpath.path,
             'method': 'GET',
             'headers': headers
