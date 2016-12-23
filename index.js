@@ -113,8 +113,18 @@ function ConManager(baseurl, token_name) {
                     resp += chunk;
                 });
                 res.on('end', () => {
-                    if (resp)
-                        resp = JSON.parse(resp);
+                    if (resp) {
+                        try {
+                            resp = JSON.parse(resp);
+                        } catch (e) {
+                            if (e instanceof SyntaxError) {
+                                resp = { 'httpErrorCode': res.statusCode, 'code': res.statusMessage, 'description': resp };
+                                res.statusCode = 500;
+                            } else {
+                                throw e;
+                            }
+                        }
+                    }
 
                     debug(resp);
                     debug("==================================================");
@@ -136,8 +146,18 @@ function ConManager(baseurl, token_name) {
                                     nresp += chunk;
                                 });
                                 nres.on('end', () => {
-                                    if (nresp)
-                                        nresp = JSON.parse(nresp);
+                                    if (nresp) {
+                                        try {
+                                            nresp = JSON.parse(nresp);
+                                        } catch (e) {
+                                            if (e instanceof SyntaxError) {
+                                                nresp = { 'httpErrorCode': nres.statusCode, 'code': nres.statusMessage, 'description': nresp };
+                                                nres.statusCode = 500;
+                                            } else {
+                                                throw e;
+                                            }
+                                        }
+                                    }
 
                                     debug(nresp);
                                     debug("==================================================");
@@ -504,6 +524,6 @@ function ConManager(baseurl, token_name) {
      */
 
     this.login_response = {};
-};
+}
 
 exports.ConManager = ConManager;
