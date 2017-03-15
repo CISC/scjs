@@ -23,5 +23,60 @@
   },
   "dependencies": {
     "debug": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1"
+  },
+  "scripts": {
+    "lint": "eslint index.js"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "dot-notation": "error",
+      "indent": [
+        "error",
+        4
+      ],
+      "no-unused-vars": [
+        "error",
+        {
+          "args": "none"
+        }
+      ],
+      "no-var": "error",
+      "prefer-arrow-callback": "warn",
+      "prefer-template": "warn",
+      "quote-props": [
+        "error",
+        "always"
+      ],
+      "require-jsdoc": [
+        "warn",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true,
+            "ArrowFunctionExpression": true
+          }
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "valid-jsdoc": [
+        "error",
+        {
+          "requireParamDescription": false,
+          "requireReturnDescription": false
+        }
+      ]
+    }
   }
 }

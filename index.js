@@ -68,7 +68,6 @@ const querystring = require('querystring');
  * @return {function}
  * @api public
  */
-
 function ConManager(baseurl, token_name) {
     this._request = (method, endpoint, data) => {
         let headers = { 'Content-Type': 'application/json' };
@@ -207,7 +206,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.uploadStream = (rstream, cmpath, upload_type) => {
         let filename = path.basename(cmpath);
         let subfolder = path.dirname(cmpath);
@@ -333,7 +331,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.upload = (file, cmpath, upload_type) => {
         let f = fs.createReadStream(file);
 
@@ -350,7 +347,6 @@ function ConManager(baseurl, token_name) {
      * @return {stream.Readable}
      * @api public
      */
-
     this.downloadStream = (cmpath) => {
         let headers = {};
         let urlpath = url.parse(url.resolve(this._rooturl, cmpath.startsWith('/') ? cmpath.slice(1): cmpath));
@@ -398,7 +394,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.download = (cmpath, file) => {
         return new Promise((resolve, reject) => {
             let f = fs.createWriteStream(file).on('error', reject);
@@ -421,7 +416,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.login = (username, password) => {
         let p = Promise.resolve(false);
 
@@ -477,7 +471,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.get = this._request.bind(this, 'GET');
 
     /**
@@ -488,7 +481,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.post = this._request.bind(this, 'POST');
 
     /**
@@ -499,7 +491,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.put = this._request.bind(this, 'PUT');
 
     /**
@@ -510,7 +501,6 @@ function ConManager(baseurl, token_name) {
      * @return {Promise}
      * @api public
      */
-
     this.delete = this._request.bind(this, 'DELETE');
 
     this._rooturl = baseurl.endsWith('/') ? baseurl : `${baseurl}/`;
@@ -522,7 +512,6 @@ function ConManager(baseurl, token_name) {
      * Cached login response object.
      * @public
      */
-
     this.login_response = {};
 }
 
