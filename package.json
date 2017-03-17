@@ -9,6 +9,7 @@
     "scws2"
   ],
   "main": "index.js",
+  "typings": "index.d.ts",
   "author": "Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>",
   "repository": {
     "type": "git",
