@@ -1,4 +1,4 @@
-﻿# scjs - A simple interface to Scala Content Manager web-services.
+# scjs - A simple interface to Scala Content Manager web-services.
 
 This module is loosely modelled after the scws2 Python module, supporting the 2.x REST API.
 
