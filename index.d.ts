@@ -92,41 +92,41 @@ declare module scjs {
          * API GET request.
          *
          * @param {string} endpoint - Endpoint path
-         * @param {Object} data - Parameters
+         * @param {Object} data - (optional) Parameters
          * @return {Promise}
          * @api public
          */
-        get(endpoint: string, data: any): Promise<any>;
+        get(endpoint: string, data?: any): Promise<any>;
 
         /**
          * API POST request.
          *
          * @param {string} endpoint - Endpoint path
-         * @param {Object} data - Parameters
+         * @param {Object} data - (optional) Parameters
          * @return {Promise}
          * @api public
          */
-        post(endpoint: string, data: any): Promise<any>;
+        post(endpoint: string, data?: any): Promise<any>;
 
         /**
          * API PUT request.
          *
          * @param {string} endpoint - Endpoint path
-         * @param {Object} data - Parameters
+         * @param {Object} data - (optional) Parameters
          * @return {Promise}
          * @api public
          */
-        put(endpoint: string, data: any): Promise<any>;
+        put(endpoint: string, data?: any): Promise<any>;
 
         /**
          * API DELETE request.
          *
          * @param {string} endpoint - Endpoint path
-         * @param {Object} data - Parameters
+         * @param {Object} data - (optional) Parameters
          * @return {Promise}
          * @api public
          */
-        delete(endpoint: string, data: any): Promise<any>;
+        delete(endpoint: string, data?: any): Promise<any>;
 
         /**
          * Cached login response object.

@@ -467,7 +467,7 @@ function ConManager(baseurl, token_name) {
      * API GET request.
      *
      * @param {string} endpoint - Endpoint path
-     * @param {Object} data - Parameters
+     * @param {Object} data - (optional) Parameters
      * @return {Promise}
      * @api public
      */
@@ -477,7 +477,7 @@ function ConManager(baseurl, token_name) {
      * API POST request.
      *
      * @param {string} endpoint - Endpoint path
-     * @param {Object} data - Parameters
+     * @param {Object} data - (optional) Parameters
      * @return {Promise}
      * @api public
      */
@@ -487,7 +487,7 @@ function ConManager(baseurl, token_name) {
      * API PUT request.
      *
      * @param {string} endpoint - Endpoint path
-     * @param {Object} data - Parameters
+     * @param {Object} data - (optional) Parameters
      * @return {Promise}
      * @api public
      */
@@ -497,7 +497,7 @@ function ConManager(baseurl, token_name) {
      * API DELETE request.
      *
      * @param {string} endpoint - Endpoint path
-     * @param {Object} data - Parameters
+     * @param {Object} data - (optional) Parameters
      * @return {Promise}
      * @api public
      */
