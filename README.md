@@ -4,6 +4,7 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 [![GitHub Issues][issues-image]][issues-url]
 [![GitHub Pull Requests][pulls-image]][pulls-url]
+[![Inline docs][docs-image]][docs-url]
 [![Known Vulnerabilities][vulns-image]][vulns-url]
 
 This module is loosely modelled after the scws2 Python module, supporting the 2.x REST API.
@@ -43,5 +44,7 @@ cm.login(username, password).then((resp) => {
 [issues-url]: https://github.com/cisc/scjs/issues
 [pulls-image]: https://img.shields.io/github/issues-pr/cisc/scjs.svg
 [pulls-url]: https://github.com/cisc/scjs/pulls
+[docs-image]: http://inch-ci.org/github/cisc/scjs.svg?branch=master&style=shields
+[docs-url]: http://inch-ci.org/github/cisc/scjs
 [vulns-image]: https://snyk.io/test/npm/scjs/badge.svg
 [vulns-url]: https://snyk.io/test/npm/scjs
