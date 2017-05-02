@@ -77,6 +77,19 @@ describe("API", function () {
         });
     });
 
+    describe("post('auth/logout')", function () {
+        it('should log out user', function () {
+            return cm.post('auth/logout').then((resp) => {
+                assert.ok(resp);
+            });
+        });
+        it('should automatically log back in and get a list of Media', function () {
+            return cm.get('media', { 'limit': 10 }).then((media) => {
+                assert.ok(media.list);
+            });
+        });
+    });
+
     describe("post('storage')", function () {
         it('should get heartbeat of Players', function () {
             return cm.post('storage', { 'ids': plrids }).then((uuid) => {
