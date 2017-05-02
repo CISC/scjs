@@ -130,6 +130,7 @@ function ConManager(baseurl, token_name) {
 
                     if (resp && typeof resp === 'object' && 'httpErrorCode' in resp && resp.httpErrorCode == 401 && resp.code == 'NoUserLogon') {
                         debug("Auth token has expired, logging in...");
+                        this._oldtoken = null;
                         this._token = null;
 
                         this.login(this._username, this._password).then(() => {
@@ -427,10 +428,12 @@ function ConManager(baseurl, token_name) {
             debug("LOGOUT");
 
             this.login_response = {};
-            p = this.get('auth/logout', { 'token': this._token }).then((resp) => {
+            p = this.get('auth/logout', { 'token': this._oldtoken }).then((resp) => {
+                this._oldtoken = null;
                 this._token = null;
                 return resp;
             }).catch((e) => {
+                this._oldtoken = null;
                 this._token = null;
                 return e; // failure is always an option
             });
@@ -452,6 +455,7 @@ function ConManager(baseurl, token_name) {
 
                 if (this._token_name in resp) {
                     this._token = resp[this._token_name];
+                    this._oldtoken = resp.token;
 
                     debug("token %s is: %s", this._token_name, this._token);
                 } else {
@@ -507,6 +511,7 @@ function ConManager(baseurl, token_name) {
     this._baseurl = url.parse(url.resolve(this._rooturl, 'api/rest/'));
     this._token_name = typeof token_name !== 'undefined' ? token_name : 'apiToken';
     this._token = null;
+    this._oldtoken = null;
 
     /**
      * Cached login response object.
