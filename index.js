@@ -397,7 +397,7 @@ function ConManager(baseurl, token_name) {
      */
     this.download = (cmpath, file) => {
         return new Promise((resolve, reject) => {
-            let f = fs.createWriteStream(file).on('error', reject);
+            let f = fs.createWriteStream(file, 'binary').on('error', reject);
 
             this.downloadStream(cmpath).on('error', (e) => {
                 fs.unlink(file);
