@@ -361,7 +361,7 @@ function ConManager(baseurl, token_name) {
         let options = {
             'hostname': urlpath.hostname,
             'port': urlpath.port,
-            'path': urlpath.path,
+            'path': urlpath.path.replace('[', '%5B').replace(']', '%5D'),
             'method': 'GET',
             'headers': headers
         };
