@@ -1,6 +1,6 @@
 {
   "name": "scjs",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "A simple interface to Scala Content Manager web-services",
   "tags": [
     "Scala",
