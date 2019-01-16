@@ -40,26 +40,34 @@ const querystring = require('querystring');
  *
  * Example usage (set DEBUG=scjs for debug output):
  *
- * var scjs = require('scjs');
+ * const { ConManager } = require('scjs');
  *
- * var baseurl = "http://localhost/ContentManager";
- * var username = "user";
- * var password = "pass";
- * var cm = new scjs.ConManager(baseurl);
- * cm.login(username, password).then((resp) => {
- *     cm.get('players', { 'limit': 0, 'offset': 0, 'fields': 'id,name,enabled,active,type' }).then((players) => {
+ * const baseurl = "http://localhost/ContentManager";
+ * const username = "user";
+ * const password = "pass";
+ * const cm = new ConManager(baseurl);
+ *
+ * (async () => {
+ *     const resp = await cm.login(username, password);
+ *
+ *     try {
+ *         const players = await cm.get('players', { 'limit': 0, 'offset': 0, 'fields': 'id,name,enabled,active,type' });
  *         console.log(players.list);
- *     });
- *     cm.get('media', { 'limit': 10, 'filters': '{"type":{"values":["IMAGE"]}}' }).then((media) => {
- *         var p = Promise.resolve();
- *         media.list.forEach((item) => {
- *             p = p.then(cm.download(item.downloadPath, item.name));
- *         });
- *     });
- *     cm.upload('LocalFolder/MyPicture.jpg', 'RemoteFolder/MyPicture.jpg').then((item) => {
+ *
+ *         const media = await cm.get('media', { 'limit': 10, 'filters': '{"type":{"values":["IMAGE"]}}' });
+ *
+ *         let items = [];
+ *         for (const item of media.list) {
+ *             items.push(cm.download(item.downloadPath, item.name));
+ *         }
+ *         await Promise.all(items);
+ *
+ *         const item = await cm.upload('LocalFolder/MyPicture.jpg', 'RemoteFolder/MyPicture.jpg');
  *         console.log(item);
- *     });
- * }).catch((e) => {
+ *     } finally {
+ *         await cm.post('auth/logout');
+ *     }
+ * })().catch((e) => {
  *     console.log(e);
  * });
  *
