@@ -400,9 +400,9 @@ function ConManager(baseurl, token_name) {
             let f = fs.createWriteStream(file, 'binary').on('error', reject);
 
             this.downloadStream(cmpath).on('error', (e) => {
-                fs.unlinkSync(file);
-                reject(e);
+                f.destroy(e);
             }).pipe(f).on('close', resolve).on('error', (e) => {
+                f.destroy();
                 fs.unlinkSync(file);
                 reject(e);
             });
